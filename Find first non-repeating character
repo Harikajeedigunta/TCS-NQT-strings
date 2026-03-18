@@ -1,0 +1,34 @@
+C++ Code:
+#include<iostream>
+#include<unordered_map>
+using namespace std;
+char firstNonRepeatChar(string s)
+{
+    int n=s.length();
+    if(n==0) return '\0';
+    unordered_map<char,int>freq;
+    for(int i=0;i<n;i++)
+    {
+        freq[s[i]]++;
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(freq[s[i]]==1)
+        {
+            return s[i];
+        }
+    }
+    return '\0';
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    cout<<firstNonRepeatChar(s);
+}
+
+Input:
+aabbcd
+
+Output:
+c
