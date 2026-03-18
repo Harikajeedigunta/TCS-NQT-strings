@@ -1,0 +1,35 @@
+C++ Code:
+#include<iostream>
+#include<string>
+using namespace std;
+bool isSubsequence(string sub,string mainstring)
+{
+    if(sub.length()==0) return true;
+    int n=sub.length();
+    int m=mainstring.length();
+    int i=0,j=0;
+    while(i<n && j<m)
+    {
+        if(sub[i]==mainstring[j])
+        {
+            i++;
+        }
+        j++;
+    }
+    return (i==n);
+}
+int main()
+{
+    string s1,s2;
+    cin>>s1>>s2;
+    bool ans=isSubsequence(s1,s2);
+    if(ans) cout<<"True"<<endl;
+    else cout<<"False"<<endl;
+    return 0;
+}
+
+Input:
+abc axbycz
+
+Output:
+True
