@@ -1,0 +1,45 @@
+C++ Code:
+#include<iostream>
+using namespace std;
+// Convert to upper case
+void toUppercase(string &s)
+{
+    for(int i=0;i<s.length();i++)
+    {
+        if(s[i]>='a' && s[i]<='z')
+        {
+            s[i]=s[i]-('a'-'A');
+        }
+    }
+}
+// Convert to lower case
+void toLowercase(string &s)
+{
+    for(int i=0;i<s.length();i++)
+    {
+        if(s[i]>='A' && s[i]<='Z')
+        {
+            s[i]=s[i]+('a'-'A');
+        }
+    }
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    string upper=s;
+    string lower=s;
+    toUppercase(upper);
+    toLowercase(lower);
+    cout<<upper<<endl;
+    cout<<lower<<endl;
+}
+
+Input:
+Hello World!
+
+Output:
+HELLO WORLD!
+hello world!
+
+
