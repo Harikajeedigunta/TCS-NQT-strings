@@ -1,0 +1,29 @@
+C++ Code:
+#include<iostream>
+using namespace std;
+string removeDuplicates(string s)
+{
+    bool freq[256]={0};
+    string result="";
+    for(int i=0;i<s.length();i++)
+    {
+        if(freq[s[i]]==0)
+        {
+            result+=s[i];
+            freq[s[i]]=true;
+        }
+    }
+    return result;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    cout<<removeDuplicates(s);
+}
+
+Input:
+aabbc
+
+Output:
+abc
