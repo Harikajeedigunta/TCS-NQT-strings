@@ -1,0 +1,38 @@
+C++ code:
+#include<iostream>
+using namespace std;
+int countPalindromesAroundCentre(string s,int left,int right)
+{
+    int n=s.length();
+    int count=0;
+    while(left>=0 && right<n && s[left]==s[right])
+    {
+        count++;
+        left--;
+        right++;
+    }
+    return count;
+}
+int countSubstrings(string s)
+{
+    if(s.length()==0) return 0;
+    int total_count=0;
+    for(int i=0;i<s.length();i++)
+    {
+        total_count+=countPalindromesAroundCentre(s,i,i);
+        total_count+=countPalindromesAroundCentre(s,i,i+1);
+    }
+    return total_count;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    cout<<countSubstrings(s);
+}
+
+Input:
+aaa
+
+Output:
+6
