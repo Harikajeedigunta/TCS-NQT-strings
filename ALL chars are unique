@@ -1,0 +1,35 @@
+C++ Code:
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+using namespace std;
+bool isUnique(vector<char>& ch)
+{
+    unordered_map<char,char>mp;
+    for(char x:ch)
+    {
+       if(mp[x]>0) return false;
+       mp[x]=1;
+    }
+    return true;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<char>ch(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>ch[i];
+    }
+    bool ans=isUnique(ch);
+    if(ans) cout<<"True";
+    else cout<<"False";
+}
+
+Input:
+5
+a p p l e
+
+Output:
+False
