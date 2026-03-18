@@ -16,7 +16,7 @@ char mostFrequentChar(string s)
     char max_fre_ele='\0';
     for(int i=0;i<n;i++)
     {
-        if(mp[s[i]]>max_fre)
+        if(mp[s[i]]>max_fre) // If i want last most fre char i should use >=
         {
             max_fre=mp[s[i]];
             max_fre_ele=s[i];
@@ -35,6 +35,4 @@ Input:
 aabbc
 
 Output:
-a 2
-b 2
-c 1
+a
