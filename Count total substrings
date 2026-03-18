@@ -1,0 +1,21 @@
+C++ Code:
+#include<iostream>
+using namespace std;
+long long countTotalSubstrings(string s)
+{
+    long long n=s.length();
+    long long count=n*(n+1)/2;
+    return count;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    cout<<countTotalSubstrings(s);
+}
+
+Input:
+abc
+
+Output:
+6
