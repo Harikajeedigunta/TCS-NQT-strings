@@ -1,0 +1,34 @@
+C++ Code:
+#include<iostream>
+#include<unordered_map>
+using namespace std;
+void freqOfEachChar(string s)
+{
+   int freq[256]={0};
+   for(unsigned char c:s)
+   {
+       freq[c]++;
+   }
+   for(unsigned char c:s)
+   {
+       if(freq[c]>0)
+       {
+           cout<<(char)c<<" "<<freq[c]<<"\n";
+           freq[c]=0;
+       }
+   }
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    freqOfEachChar(s);
+}
+
+Input:
+aabbc
+
+Output:
+a 2
+b 2
+c 1
