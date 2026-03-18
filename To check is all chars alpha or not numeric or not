@@ -1,0 +1,36 @@
+C++ Code:
+#include<iostream>
+#include<cctype>
+using namespace std;
+bool isAlphabet(string s)
+{
+    if(s.length()==0) return false;
+    for(int i=0;i<s.length();i++)
+    {
+        if(!isalpha(s[i])) return false;
+    }
+    return true;
+}
+bool isNumeric(string s)
+{
+    if(s.length()==0) return false;
+    for(int i=0;i<s.length();i++)
+    {
+        if(!isdigit(s[i])) return false;
+    }
+    return true;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    if(isAlphabet(s)) cout<<"Contains only alphabet"<<endl;
+    else if(isNumeric(s)) cout<<"Contains only digits"<<endl;
+    else cout<<"Contains other characters"<<endl;
+}
+
+Input:
+HelloWorld
+
+Output:
+Contains only alphabet
