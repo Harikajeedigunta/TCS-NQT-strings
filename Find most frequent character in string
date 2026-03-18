@@ -1,0 +1,40 @@
+C++ Code:
+#include<iostream>
+#include<climits>
+#include<unordered_map>
+using namespace std;
+char mostFrequentChar(string s)
+{
+    int n=s.length();
+    if(n==0) return '\0';
+    unordered_map<char,int>mp;
+    for(int i=0;i<n;i++)
+    {
+        mp[s[i]]++;
+    }
+    int max_fre=INT_MIN;
+    char max_fre_ele='\0';
+    for(int i=0;i<n;i++)
+    {
+        if(mp[s[i]]>max_fre)
+        {
+            max_fre=mp[s[i]];
+            max_fre_ele=s[i];
+        }
+    }
+    return max_fre_ele;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    cout<<mostFrequentChar(s);
+}
+
+Input:
+aabbc
+
+Output:
+a 2
+b 2
+c 1
