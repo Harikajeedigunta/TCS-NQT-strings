@@ -1,0 +1,31 @@
+C++ Code:
+#include<iostream>
+using namespace std;
+long long productNumericString(const string& s)
+{
+    long long product=1;
+    bool hasDigit=false;
+    for(int i=0;i<s.length();i++)
+    {
+        if(isdigit(s[i]))
+        {
+            int digit=s[i]-'0';
+            product*=digit;
+            hasDigit=true;
+            if(product==0) return 0;
+        }
+    }
+    return product;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    cout<<productNumericString(s);
+}
+
+Input:
+123
+
+Output:
+6
