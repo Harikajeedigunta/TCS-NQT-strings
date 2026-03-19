@@ -1,0 +1,35 @@
+C++ Code:
+#include<iostream>
+#include<string>
+using namespace std;
+string largestOddOrEvenSS(string s,bool wantEven)
+{
+    for(int i=s.length()-1;i>=0;i--)
+    {
+        int digit=s[i]-'0';
+        bool isOdd=(digit%2!=0);
+        if((wantEven && !isOdd) || (!wantEven && isOdd))
+        {
+            return s.substr(0,i+1);
+        }
+    }
+    return "";
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    string evenRes=largestOddOrEvenSS(s,true);
+    string oddRes=largestOddOrEvenSS(s,false);
+    if (!evenRes.empty()) cout << evenRes;
+    else cout << "None";
+    cout << " ";
+    if (!oddRes.empty()) cout << oddRes;
+    else cout << "None";
+}
+
+Input:
+1234
+
+Output:
+1234 123
