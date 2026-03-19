@@ -1,0 +1,31 @@
+C++ code:
+#include<iostream>
+#include<string>
+#include<cctype>
+using namespace std;
+bool isNumeric(const string& s)
+{
+    if(s.empty()) return false;
+    for(char ch:s)
+    {
+        if(!isdigit(ch))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    bool ans=isNumeric(s);
+    if(ans) cout<<"True"<<endl;
+    else cout<<"False"<<endl;
+}
+
+Input:
+123
+
+Output:
+True
