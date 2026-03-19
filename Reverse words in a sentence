@@ -1,0 +1,33 @@
+C++ Code:
+#include<iostream>
+#include<algorithm>
+using namespace std;
+string reverseWords(string &s)
+{
+    int n=s.length();
+    if(n==0) return s;
+    reverse(s.begin(),s.end());
+    int left=0,right=n-1;
+    for(right=0;right<=n;right++)
+    {
+        if(right==n || s[right]==' ')
+        {
+            reverse(s.begin()+left,s.begin()+right);
+            left=right+1;
+        }
+    }
+    return s;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    reverseWords(s);
+    cout<<s;
+}
+
+Input:
+I am Harika
+
+Output:
+Harika am I
