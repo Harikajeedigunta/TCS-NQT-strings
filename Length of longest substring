@@ -1,0 +1,40 @@
+C++ Code:
+#include<iostream>
+#include<unordered_map>
+#include<algorithm>
+using namespace std;
+pair<int,string> lengthOfLongestSubstring(string s)
+{
+    int freq[256]={0};
+    int left=0,max_len=0;
+    int start_index=0;
+    for(int right=0;right<s.length();right++)
+    {
+        freq[s[right]]++;
+        while(freq[s[right]]>1)
+        {
+            freq[s[left]]--;
+            left++;
+        }
+        if(right-left+1>max_len)
+        {
+            max_len=right-left+1;
+            start_index=left;
+        }
+    }
+    string longest_substring=s.substr(start_index,max_len);
+    return {max_len,longest_substring};
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    pair<int,string>result=lengthOfLongestSubstring(s);
+    cout<<result.first<<" "<<result.second<<endl;
+}
+
+Input:
+aabccabc
+
+Output:
+3 abc
