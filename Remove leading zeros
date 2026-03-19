@@ -1,0 +1,26 @@
+C++ Code:
+#include<iostream>
+using namespace std;
+string removeLeadingZeros(string s)
+{
+    int i=0;
+    int n=s.length();
+    while(i<n && s[i]=='0')
+    {
+        i++;
+    }
+    if(i==n) return "0";
+    return s.substr(i);
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    cout<<removeLeadingZeros(s);
+}
+
+Input:
+000458
+
+Output:
+458
